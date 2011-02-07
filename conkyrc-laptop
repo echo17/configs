@@ -9,11 +9,10 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager
 
 #borders
 draw_borders no
-border_margin 0
+border_margin 1
 
 #shades
 draw_shades no
-minimum_width 900
 
 #position
 gap_x 0
@@ -34,4 +33,4 @@ use_xft yes
 xftfont AvantGarde Md BT:pixelsize=12
 
 TEXT
-${color}Processes: ${color D7D3C5}$processes  ${color}Running: ${color D7D3C5}$running_processes  |  ${color}Core0: ${color D7D3C5}${cpu cpu1}% - ${color}Temp: ${color D7D3C5}${acpitemp}°C    ${color}Core1: ${color D7D3C5}${cpu cpu2}% - ${color}Temp: ${color D7D3C5}${acpitemp}°C  |  ${color}Mem: ${color D7D3C5}$memperc%  |  ${color}Root: ${color D7D3C5}${font}${fs_free /}  / ${fs_size /}  |  ${color}Home: ${color D7D3C5}${fs_free /home}  / ${fs_size /home}  |  ${color}IP: ${color D7D3C5}${addr eth0}  |  ${color}Down: ${color D7D3C5}${downspeedf eth0}k/s  -  ${color}Up: ${color D7D3C5}${upspeedf eth0}k/s 
+${alignc}${color}Kernel: ${color D7D3C5}$kernel | Temp:${alignr}${execi 20 nvidia-settings -q gpucoretemp |grep Attribute |awk '{print $4}' |cut -c1-2}°C | ${color}Processes: ${color D7D3C5}$processes  ${color}Running: ${color D7D3C5}$running_processes  |  ${color}Core0: ${color D7D3C5}${cpu cpu1}%  -  ${color}Core1: ${color D7D3C5}${cpu cpu2}% |  ${color}Mem: ${color D7D3C5}$memperc%  |  ${color}Root: ${color D7D3C5}${font}${fs_free /}  / ${fs_size /}  |  ${color}Home: ${color D7D3C5}${fs_free /home}  / ${fs_size /home}  |  ${color}IP: ${color D7D3C5}${addr eth0}  |  ${color}D : ${color D7D3C5}${downspeedf eth0}k/s  -  ${color}U : ${color D7D3C5}${upspeedf eth0}k/s
