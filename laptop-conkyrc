@@ -1,0 +1,65 @@
+double_buffer yes
+  
+#own window to run simultanious 2 or more conkys
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager
+own_window_colour 262729
+
+#borders
+#draw_borders no
+border_margin 1
+ 
+#shades
+draw_shades yes
+draw_graph_borders yes
+gap_x 20
+gap_y 20
+minimum_width 200
+maximum_width 200
+alignment top_right
+
+update_interval 0.5
+
+use_xft yes
+
+#Colors
+ color0 c0c0c0 # original grey
+# color0 000000
+# color1 010440
+# color1 E04613 # original orange
+ color1 6495ed
+
+TEXT
+
+${color1}${font Demi:size=72}${time %H}
+${offset 115}${voffset -153}${font Demi:size=30}${time %M}
+${offset 115}${voffset -25}${color0}${font Demi:size=14}${time %a}
+${offset 115}${voffset 0}${color0}${font Demi:size=14}${time %d}
+${offset 115}${voffset -5}${time %b}
+${voffset 5}${color0}$stippled_hr
+${voffset 0}${font nu}${color1}$nodename ${alignr}${color0}$kernel
+${voffset 5}${color0}$stippled_hr
+${voffset 5}${color0}${alignc}HARDWARE
+${voffset 5}${color0}CPU0: ${color1}${cpu cpu0}%${color0}${alignr}CPU1: ${color1}${cpu cpu1}%
+${color0}${alignc}${freq_g}GHz
+${color1}${voffset 2}${cpubar cpu0 4,0}
+${voffset 1}${cpubar cpu1 4,0}
+${voffset 5}${color0}RAM: ${color1}$memperc%
+${color0}${alignc}$memmax
+${color1}${voffset 2}${membar 4,0}
+${voffset 5}${color0}$stippled_hr
+${voffset 5}${color0}${alignc}FILESYSTEM
+${voffset 5}${color0}Main ${alignr}${color1}${fs_free_perc /}% ${color0}free
+${color1}${alignc}${fs_used /}${color0}/${fs_size /}
+${color1}${voffset 2}${fs_bar 4,0 /}
+${voffset 5}${color0}Home ${alignr}${color1}${fs_free_perc /home}% ${color0}free
+${color1}${alignc}${fs_used /home}${color0}/${fs_size /home}
+${color1}${voffset 2}${fs_bar 4,0 /home}
+${voffset 5}${color0}$stippled_hr
+${voffset 5}${color0}${alignc}NETWORK
+${voffset 2}${color0}U: ${color1}${upspeed eth0}Kb ${alignr}${color0}D: ${color1}${downspeed eth0}Kb
+${color0}${alignc}${addr eth0}
+${voffset 1}${color1}${upspeedgraph eth0 15,70} ${alignr}${downspeedgraph eth0 15,70}
+
