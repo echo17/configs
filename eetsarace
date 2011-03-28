@@ -1,0 +1,6 @@
+make mrproper
+make clean
+cp arch/arm/configs/cyanogen_supersonic_defconfig .config
+echo "How many jobs do you want to run?"
+read job
+time make zImage -j$job
