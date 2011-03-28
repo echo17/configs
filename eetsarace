@@ -1,3 +1,6 @@
+echo "root directory of AOSP source"
+read dir
+export CCOMPILER="$dir"/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-
 make mrproper
 make clean
 cp arch/arm/configs/cyanogen_supersonic_defconfig .config
