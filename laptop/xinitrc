@@ -1,0 +1,8 @@
+wicd-gtk &
+ck-launch-session dbus-launch devmon --unmount-on-exit &
+feh --bg-scale /home/echo/pictures/dwm-bg01.png &
+conky | while read -r; do xsetroot -name "$REPLY"; done &
+gnome-sound-applet &
+batti &
+dwm 
+#exec ck-launch-session gnome-session

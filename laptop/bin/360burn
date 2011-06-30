@@ -1,0 +1,3 @@
+360 Backup filename
+read iso
+growisofs -use-the-force-luke=dao -use-the-force-luke=break:1913760  -dvd-compat -speed=4 -Z /dev/sr0=$iso
