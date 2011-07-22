@@ -1,29 +1,35 @@
-
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
+# Alias
 alias ls='ls --color=auto'
+alias pacman='pacman-color'
+alias sys-update='yaourt -Syua'
+
 shopt -s nocaseglob
 
-# bash prompt and extract from ok100
+# bash prompt
 PS1="┌─[\[\e[34m\]\h\[\e[0m\]][\[\e[32m\]\w\[\e[0m\]]\n└─╼ "
 
+# PS1='[\u@\h \W]\$ '
+
+# extract function
 extract () {
   if [ -f $1 ] ; then
-case $1 in
-          *.tar.bz2) tar xvjf $1 ;;
-          *.tar.gz) tar xvzf $1 ;;
-          *.tar.xz) tar xvJf $1 ;;
-          *.bz2) bunzip2 $1 ;;
-          *.rar) unrar x $1 ;;
-          *.gz) gunzip $1 ;;
-          *.tar) tar xvf $1 ;;
-          *.tbz2) tar xvjf $1 ;;
-          *.tgz) tar xvzf $1 ;;
-          *.zip) unzip $1 ;;
-          *.7z) 7z x $1 ;;
-          *.xz) unxz $1 ;;
-          *) echo "\`$1': can not do that moron" ;;
+      case $1 in
+        *.tar.bz2) tar xvjf $1 ;;
+        *.tar.gz) tar xvzf $1 ;;
+        *.tar.xz) tar xvJf $1 ;;
+        *.bz2) bunzip2 $1 ;;
+        *.rar) unrar x $1 ;;
+        *.gz) gunzip $1 ;;
+        *.tar) tar xvf $1 ;;
+        *.tbz2) tar xvjf $1 ;;
+        *.tgz) tar xvzf $1 ;;
+        *.zip) unzip $1 ;;
+        *.7z) 7z x $1 ;;
+        *.xz) unxz $1 ;;
+        *) echo "\`$1': unrecognized file compression" ;;
       esac
 else
 echo "\`$1' is not a valid file"
