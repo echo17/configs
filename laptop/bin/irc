@@ -1,0 +1,3 @@
+sakura -x 'irssi -c stratics' &
+sakura -x 'irssi -c freenode' &
+sakura -x 'irssi -c what.cd' &
